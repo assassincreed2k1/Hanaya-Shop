@@ -61,6 +61,8 @@ services:
     environment:
       - APP_ENV=production
       - APP_DEBUG=false
+      - APP_KEY=base64:sQbpp5LuUmxSQBAaSIyt+ph7NzDu4Y8x6PYh0CPnZm8=
+      - APP_URL=https://hanaya-shop.com
       - DB_HOST=db
       - DB_DATABASE=hanaya_shop
       - DB_USERNAME=hanaya_user
@@ -144,6 +146,24 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 chmod 600 deployment/ssl/hanaya-shop.key
 chmod 644 deployment/ssl/hanaya-shop.crt
+echo "📝 Step 4.1: Creating Vite manifest and assets..."
+mkdir -p public/build/assets
+cat > public/build/manifest.json << 'MANIFEST'
+{
+  "resources/css/app.css": {
+    "file": "assets/app-custom.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-custom.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
+MANIFEST
+touch public/build/assets/app-custom.css
+touch public/build/assets/app-custom.js
 
 # Step 5: Pull and start containers
 echo "🐳 Step 5: Pulling Docker image..."

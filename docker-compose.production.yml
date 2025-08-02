@@ -15,12 +15,14 @@ services:
       - DB_USERNAME=hanaya_user
       - DB_PASSWORD=Trungnghia2703
       - REDIS_HOST=redis
+      - REDIS_CLIENT=predis
       - CACHE_DRIVER=redis
       - SESSION_DRIVER=redis
       - QUEUE_CONNECTION=redis
     volumes:
       - storage_data:/var/www/html/storage/app
       - logs_data:/var/www/html/storage/logs
+      - ./deployment/ssl:/etc/nginx/ssl
     depends_on:
       - db
       - redis

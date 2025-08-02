@@ -1,17 +1,4 @@
-# Multi-stage build for production deployment
-# Stage 1: Build frontend assets
-FROM node:18-alpine AS frontend-builder
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-RUN npm ci
-
-# Copy source code and build
-COPY . .
-RUN npm run build
-
-# Stage 2: Build PHP application
+# Production deployment for Hanaya Shop
 FROM php:8.2-fpm
 
 # Install system dependencies and PHP extensions
@@ -34,7 +21,7 @@ COPY deployment/php/php.ini /usr/local/etc/php/conf.d/laravel.ini
 
 # Configure Nginx
 COPY deployment/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY deployment/nginx/default.conf /etc/nginx/sites-available/default
+COPY deployment/nginx/https.conf /etc/nginx/sites-available/default
 
 # Configure Supervisor (với queue worker)
 COPY deployment/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -51,8 +38,9 @@ RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoload
 COPY . .
 COPY .env.production .env
 
-# Copy built frontend assets from frontend-builder stage
-COPY --from=frontend-builder /app/public/build ./public/build
+# Create built frontend assets directory (static assets only)
+RUN mkdir -p public/build && \
+    echo '{}' > public/build/manifest.json
 
 # Create required directories and set permissions
 RUN mkdir -p \

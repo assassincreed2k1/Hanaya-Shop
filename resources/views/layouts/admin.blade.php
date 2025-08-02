@@ -199,7 +199,25 @@
 </script>
 
     <script>
+        // Function to hide loading overlay
+        function hideAdminPageLoadingOverlay() {
+            const overlay = document.getElementById('pageLoadingOverlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex', 'items-center', 'justify-center');
+            }
+        }
+
+        // Hide overlay when page loads
+        window.addEventListener('load', hideAdminPageLoadingOverlay);
+
+        // Hide overlay when navigating with browser back/forward buttons
+        window.addEventListener('popstate', hideAdminPageLoadingOverlay);
+
         document.addEventListener('DOMContentLoaded', function() {
+            // Hide overlay on initial page load
+            hideAdminPageLoadingOverlay();
+            
             // Chặn click trên nav-link và delay chuyển trang
             document.querySelectorAll('nav a, .admin-nav a, .sidebar a').forEach(link => {
                 link.addEventListener('click', function(e) {

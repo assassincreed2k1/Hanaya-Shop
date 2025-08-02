@@ -11,7 +11,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Global middleware for HTTPS
+        $middleware->web(\App\Http\Middleware\ForceHttpsMiddleware::class);
+        
+        $middleware->alias([
+            'force.https' => \App\Http\Middleware\ForceHttpsMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

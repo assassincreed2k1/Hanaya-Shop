@@ -57,7 +57,7 @@ return [
 
     // Review configuration
     'review' => [
-        'can_review_status' => 'shipped', // Status when user can review
+        'can_review_status' => 'completed', // Status when user can review
         'max_rating' => 5,
         'min_rating' => 1,
         'default_rating' => 5,

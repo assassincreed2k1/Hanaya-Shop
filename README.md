@@ -1,208 +1,178 @@
 
 
-# 🌸 Hanaya Shop
+# 🛒 Hanaya Shop - E-commerce Platform
 
-<details>
-<summary><strong>🇯🇵 日本語</strong></summary>
+[![Docker](https://img.shields.io/badge/Docker-Ready-blue)](https://hub.docker.com/r/assassincreed2k1/hanaya-shop)
+[![Laravel](https://img.shields.io/badge/Laravel-10.x-red)](https://laravel.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.2-purple)](https://php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)](https://mysql.com/)
+[![Redis](https://img.shields.io/badge/Redis-7.0-red)](https://redis.io/)
 
-## 概要
+Modern e-commerce platform built with Laravel, featuring a complete shopping experience with Docker deployment.
 
-**Hanaya Shop**は、ユーザーが美しい生花を簡単に選択・購入・決済できるよう設計された、最新のUI/UXを備えたオンラインフラワーショップWebアプリケーションです。
-ECサイト構築の実務経験をアピールするために開発しました。
+## ✨ Features
 
----
+- 🛒 Complete shopping cart functionality
+- 👤 User authentication and profiles
+- 📦 Product catalog and management
+- 📋 Order management system
+- 💳 Payment integration ready
+- 📧 Email notifications
+- 🔍 Search and filtering
+- 📱 Responsive design
+- 🚀 Docker deployment ready
 
-## 🎯 プロジェクト目的
+## 🚀 Quick Deployment on Ubuntu
 
-- 花屋向けのシンプルかつ拡張性の高いECプラットフォームの構築
-- 商品（花）、カート、注文の効率的な管理
-- 管理者用ダッシュボードの実装
-- **Docker**による迅速な環境構築（.env不要）
-
----
-
-## 🌟 主な機能
-
-### 👤 顧客向け
-- 商品一覧の閲覧、カテゴリ・用途・価格による絞り込み
-- 商品詳細・画像・価格の表示
-- カートへの追加・注文作成
-- 購入履歴の確認（会員登録時）
-
-### 🛠️ 管理者向け
-- 商品カテゴリ管理
-- 商品のCRUD（追加・編集・削除・表示/非表示切替）
-- 注文管理（承認・キャンセル・ステータス更新）
-- 顧客管理
-
----
-
-## 🛠️ 技術スタックと効果
-
-- **PHP 8.2**: 最新のPHPバージョンを採用し、セキュリティ・パフォーマンス・保守性を向上。
-- **Laravel 12.2**: モダンなMVCフレームワーク。高速な開発、堅牢な認証・権限管理、RESTful API設計、テスト容易性。
-- **MySQL**: 信頼性の高いリレーショナルデータベース。大量データの高速処理、トランザクション管理。
-- **Bladeテンプレート**: サーバーサイドレンダリングでSEO・パフォーマンス最適化。再利用性の高いUIコンポーネント。
-- **Docker Compose**: 開発・本番環境の自動構築。依存関係の一元管理、環境差異の排除、CI/CD対応。
-- **Tailwind CSS**: ユーザー体験を高めるモダンなUI設計。レスポンシブ対応。
-- **PHPUnit**: 単体・機能テストで品質担保。
-
-これらの技術により、開発効率・保守性・拡張性・セキュリティ・パフォーマンスが大幅に向上しています。
-
----
-
-## 🗂️ ディレクトリ構成
-
+### One-line installation:
 ```bash
-hanaya-shop/
-├── app/                # コントローラー、モデル、サービス
-├── bootstrap/          # Laravel初期化
-├── config/             # システム設定
-├── database/           # マイグレーション・シーダー
-├── public/             # 画像・エントリポイント
-├── resources/          # CSS・JS・Bladeテンプレート
-├── routes/             # Web/APIルーティング
-├── storage/            # アップロード・ログ
-├── tests/              # ユニット・機能テスト
-├── Dockerfile          # Docker設定
-├── docker-compose.yml  # Docker環境構築
-└── README.md           # ドキュメント
+curl -fsSL https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-setup.sh | bash
 ```
 
----
-
-## 💡 アピールポイント
-
-- 実務レベルのLaravel設計・実装力
-- Dockerによる開発・本番環境の自動化
-- 管理画面・顧客画面の両方を考慮したUI/UX設計
-- 拡張性・保守性を意識したディレクトリ構成
-
----
-
-## 🚀 利用方法
-
-1. 必要なツール: [Docker Desktop](https://www.docker.com/products/docker-desktop/) をインストール
-2. プロジェクトディレクトリで以下を実行:
-   ```bash
-   docker-compose up --build
-   ```
-3. ブラウザで `http://localhost:8000` にアクセス
-4. 管理画面: `/admin` からログイン
-5. サンプルデータ投入:
-   ```bash
-   docker-compose exec app php artisan migrate --seed
-   ```
-6. テスト実行:
-   ```bash
-   docker-compose exec app php artisan test
-   ```
-
-詳細は `README.md` 内の各セクションをご参照ください。
-
-</details>
-
-
-<details>
-<summary><strong>🇺🇸 English</strong></summary>
-
-## Overview
-
-**Hanaya Shop** is a modern online flower shop web application, designed to help users easily browse, purchase, and pay for fresh flowers with an optimized and user-friendly interface.
-This project demonstrates practical experience in building scalable e-commerce platforms.
-
----
-
-## 🎯 Project Goals
-
-- Build a simple yet extensible e-commerce platform for flower shops
-- Efficient management of products (flowers), cart, and orders
-- Integrated admin dashboard for shop management
-- Rapid environment setup using **Docker** (no `.env` configuration required)
-
----
-
-## 🌟 Key Features
-
-### 👤 For Customers
-- Browse flower products, filter by category/occasion/price
-- View product details, images, and prices
-- Add products to cart and place orders
-- View purchase history (for registered users)
-
-### 🛠️ For Admins
-- Manage flower categories
-- CRUD operations for products: add, edit, delete, toggle visibility
-- Manage orders: confirm, cancel, update status
-- Manage customers
-
----
-
-## 🛠️ Technology Stack & Benefits
-
-- **PHP 8.2**: Latest version for improved security, performance, and maintainability.
-- **Laravel 12.2**: Modern MVC framework enabling rapid development, robust authentication/authorization, RESTful API design, and easy testing.
-- **MySQL**: Reliable relational database for fast processing and transaction management.
-- **Blade template**: Server-side rendering for SEO and performance, reusable UI components.
-- **Docker Compose**: Automated environment setup, unified dependency management, eliminates environment differences, CI/CD ready.
-- **Tailwind CSS**: Modern UI design, responsive and user-friendly experience.
-- **PHPUnit**: Unit and feature testing for quality assurance.
-
-These technologies ensure high development efficiency, maintainability, scalability, security, and performance.
-
----
-
-## 🗂️ Project Structure
-
+### Manual installation:
 ```bash
-hanaya-shop/
-├── app/                # Controllers, models, services
-├── bootstrap/          # Laravel initialization
-├── config/             # System configuration
-├── database/           # Migrations & seeders
-├── public/             # Images & entry point
-├── resources/          # CSS, JS, Blade templates
-├── routes/             # Web/API routing
-├── storage/            # Uploads, logs
-├── tests/              # Unit & feature tests
-├── Dockerfile          # Docker configuration
-├── docker-compose.yml  # Docker setup
-└── README.md           # Documentation
+wget https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-setup.sh
+chmod +x ubuntu-setup.sh
+./ubuntu-setup.sh
 ```
 
+## 🏗️ Architecture
+
+- **Frontend**: Laravel Blade templates with Alpine.js
+- **Backend**: Laravel 10.x with PHP 8.2
+- **Database**: MySQL 8.0
+- **Cache/Sessions**: Redis 7.0
+- **Web Server**: Nginx
+- **Process Manager**: Supervisor
+- **Containerization**: Docker & Docker Compose
+
+## 📦 Installation
+
+### Requirements
+- Docker & Docker Compose
+- Ubuntu 20.04+ (recommended)
+- 2GB RAM minimum
+- 10GB free disk space
+
+### Development Setup
+```bash
+# Clone repository
+git clone https://github.com/assassincreed2k1/Hanaya-Shop.git
+cd Hanaya-Shop
+
+# Copy environment file
+cp .env.example .env
+
+# Install dependencies
+composer install
+npm install
+
+# Generate application key
+php artisan key:generate
+
+# Run migrations
+php artisan migrate
+
+# Start development server
+php artisan serve
+```
+
+### Production Deployment
+Use the provided Ubuntu deployment scripts for production setup.
+
+## � Management
+
+### Update application:
+```bash
+cd ~/hanayashop
+wget https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-update.sh
+chmod +x ubuntu-update.sh
+./ubuntu-update.sh
+```
+
+### Backup data:
+```bash
+cd ~/hanayashop
+wget https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-backup.sh
+chmod +x ubuntu-backup.sh
+./ubuntu-backup.sh
+```
+
+### View logs:
+```bash
+cd ~/hanayashop
+docker-compose logs -f
+```
+
+## 📚 Documentation
+
+- [Ubuntu Deployment Guide](UBUNTU_DEPLOYMENT_GUIDE_FINAL.md)
+- [Deployment Success](DEPLOYMENT_SUCCESS.md)
+
+## 🔧 Configuration
+
+### Environment Variables
+Key environment variables for production:
+
+```bash
+APP_NAME="Hanaya Shop"
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://your-domain.com
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_DATABASE=hanaya_shop
+DB_USERNAME=hanaya_user
+DB_PASSWORD=your_secure_password
+
+REDIS_HOST=redis
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis
+```
+
+## � Performance
+
+- **Caching**: Redis for session and cache storage
+- **Optimization**: OPcache enabled, Laravel optimizations applied
+- **Database**: MySQL with optimized configuration
+- **Static Assets**: Nginx serving with proper caching headers
+
+## 🔒 Security
+
+- Security headers configured
+- Input validation and sanitization
+- CSRF protection
+- Password hashing with bcrypt
+- Rate limiting implemented
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**assassincreed2k1**
+- GitHub: [@assassincreed2k1](https://github.com/assassincreed2k1)
+
+## 🙏 Acknowledgments
+
+- Laravel Framework
+- Docker Community
+- Open Source Contributors
+
 ---
 
-## 💡 Highlights
-
-- Professional Laravel architecture and implementation
-- Automated development & production environment with Docker
-- Thoughtful UI/UX for both admin and customer sides
-- Scalable and maintainable project structure
-
----
-
-## 🚀 Getting Started
-
-1. Prerequisite: Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-2. In the project directory, run:
-   ```bash
-   docker-compose up --build
-   ```
-3. Open your browser and go to `http://localhost:8000`
-4. Admin dashboard: access via `/admin`
-5. Seed sample data:
-   ```bash
-   docker-compose exec app php artisan migrate --seed
-   ```
-6. Run tests:
-   ```bash
-   docker-compose exec app php artisan test
-   ```
-
-See each section in `README.md` for more details.
-
-</details>
-
+**⭐ Star this repository if you find it helpful!**
 
 <details>
 <summary><strong>🇻🇳 Tiếng Việt</strong></summary>
@@ -253,53 +223,18 @@ Những công nghệ này giúp dự án đạt hiệu quả cao về tốc đ�
 
 ---
 
-## 🗂️ Cấu trúc dự án
+## � Hướng dẫn triển khai Ubuntu
 
+### Cài đặt một dòng:
 ```bash
-hanaya-shop/
-├── app/                # Controller, model, service
-├── bootstrap/          # Khởi tạo Laravel
-├── config/             # Cấu hình hệ thống
-├── database/           # Migration & seeder
-├── public/             # Hình ảnh, entry point
-├── resources/          # CSS, JS, Blade template
-├── routes/             # Tuyến web/API
-├── storage/            # Upload, log
-├── tests/              # Unit test & feature test
-├── Dockerfile          # Docker config
-├── docker-compose.yml  # Docker setup
-└── README.md           # Tài liệu dự án
+curl -fsSL https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-setup.sh | bash
 ```
 
----
-
-## 💡 Điểm nổi bật
-
-- Kiến trúc Laravel chuyên nghiệp, dễ mở rộng
-- Tự động hóa môi trường phát triển & triển khai với Docker
-- UI/UX tối ưu cho cả admin và khách hàng
-- Cấu trúc dự án rõ ràng, dễ bảo trì
-
----
-
-## 🚀 Hướng dẫn sử dụng
-
-1. Cài đặt [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-2. Trong thư mục dự án, chạy:
-   ```bash
-   docker-compose up --build
-   ```
-3. Mở trình duyệt và truy cập `http://localhost:8000`
-4. Đăng nhập admin tại `/admin`
-5. Tạo dữ liệu mẫu:
-   ```bash
-   docker-compose exec app php artisan migrate --seed
-   ```
-6. Chạy kiểm thử:
-   ```bash
-   docker-compose exec app php artisan test
-   ```
-
-Xem chi tiết từng phần trong `README.md`.
+### Cài đặt thủ công:
+```bash
+wget https://raw.githubusercontent.com/assassincreed2k1/Hanaya-Shop/main/ubuntu-setup.sh
+chmod +x ubuntu-setup.sh
+./ubuntu-setup.sh
+```
 
 </details>

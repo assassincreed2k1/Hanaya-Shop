@@ -6,7 +6,6 @@ services:
     container_name: hanaya-shop-app
     ports:
       - "80:80"
-      - "443:443"
     environment:
       - APP_ENV=production
       - APP_DEBUG=false
@@ -22,7 +21,6 @@ services:
     volumes:
       - storage_data:/var/www/html/storage/app
       - logs_data:/var/www/html/storage/logs
-      - ./deployment/ssl:/etc/nginx/ssl
     depends_on:
       - db
       - redis

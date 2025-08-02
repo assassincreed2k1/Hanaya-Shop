@@ -21,7 +21,7 @@ COPY deployment/php/php.ini /usr/local/etc/php/conf.d/laravel.ini
 
 # Configure Nginx
 COPY deployment/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY deployment/nginx/https.conf /etc/nginx/sites-available/default
+COPY deployment/nginx/http.conf /etc/nginx/sites-available/default
 
 # Configure Supervisor (với queue worker)
 COPY deployment/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -63,7 +63,7 @@ RUN composer dump-autoload --optimize \
     && php artisan route:cache
 
 # Expose ports
-EXPOSE 80 443
+EXPOSE 80
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
